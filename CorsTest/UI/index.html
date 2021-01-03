@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <p id="status"></p>
+    <p id="json"></p>
+
+    <script>
+        const request = new Request(
+            "https://api.stage.meetupfarsi.com/WeatherForecast",
+            {
+                method: "GET",
+                mode: "cors",
+            });
+
+        fetch(request).then(response => {
+            document.getElementById("status").innerText = response.status;
+            response.json().then(j => document.getElementById("json").innerText = j)
+        });
+    </script>
+</body>
+</html>
